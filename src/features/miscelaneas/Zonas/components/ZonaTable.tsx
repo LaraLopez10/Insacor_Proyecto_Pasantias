@@ -1,7 +1,7 @@
-import Badge from "../../../shared/components/ui/Badge/badge";
+import Badge from "../../../../shared/components/ui/Badge/badge";
 import DataTable, {
   type DataTableColumn,
-} from "../../../shared/components/ui/DataTable/dataTable";
+} from "../../../../shared/components/ui/DataTable/dataTable";
 
 import type { Zona } from "../types/zonas.types";
 

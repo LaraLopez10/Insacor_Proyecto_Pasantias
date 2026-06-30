@@ -84,7 +84,7 @@ export default function ZonaMap({
             position="topleft"
             onCreated={manejarCreacion}
             draw={{
-              marker: true,
+              marker: false,
               polygon: true,
               rectangle: false,
               circle: false,

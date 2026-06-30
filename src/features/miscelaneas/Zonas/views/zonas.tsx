@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-import AppLayout from "../../../shared/layouts/AppLayout";
-import PageHeader from "../../../shared/components/ui/PageHeader/PageHeader";
-import Card from "../../../shared/components/ui/Card/card";
-import Button from "../../../shared/components/ui/Button";
-import Modal from "../../../shared/components/ui/Modal";
+import AppLayout from "../../../../shared/layouts/AppLayout";
+import PageHeader from "../../../../shared/components/ui/PageHeader/PageHeader";
+import Card from "../../../../shared/components/ui/Card/card";
+import Button from "../../../../shared/components/ui/Button";
+import Modal from "../../../../shared/components/ui/Modal";
 
 import ZonaForm from "../components/ZonaForm";
 import ZonaTable from "../components/ZonaTable";

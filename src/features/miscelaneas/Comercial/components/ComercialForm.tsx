@@ -1,24 +1,30 @@
 import { useState } from "react";
 
-import Button from "../../../shared/components/ui/Button";
-import Input from "../../../shared/components/ui/Input";
-import Select from "../../../shared/components/ui/Select";
+import Button from "../../../../shared/components/ui/Button";
+import Input from "../../../../shared/components/ui/Input";
+import Select from "../../../../shared/components/ui/Select";
 
-import ZonaMap from "./ZonaMap";
+import ZonaComercialMap from "./ComercialMap";
 
-import type { EstadoZona, GeometriaZona, Zona } from "../types/zonas.types";
+import type {
+  EstadoZonaComercial,
+  GeometriaZonaComercial,
+  ZonaComercial,
+} from "../types/zonaComercial.types";
 
-interface ZonaFormProps {
-  onGuardar: (zona: Omit<Zona, "id">) => void;
+interface Props {
+  onGuardar: (zona: Omit<ZonaComercial, "id">) => void;
   onCancelar: () => void;
 }
 
-export default function ZonaForm({ onGuardar, onCancelar }: ZonaFormProps) {
+export default function ZonaComercialForm({ onGuardar, onCancelar }: Props) {
   const [descripcion, setDescripcion] = useState("");
   const [geolatitud, setGeolatitud] = useState("");
   const [geolongitud, setGeolongitud] = useState("");
-  const [estado, setEstado] = useState<EstadoZona>("ACTIVA");
-  const [geometria, setGeometria] = useState<GeometriaZona | null>(null);
+  const [estado, setEstado] = useState<EstadoZonaComercial>("ACTIVA");
+  const [geometria, setGeometria] = useState<GeometriaZonaComercial | null>(
+    null,
+  );
 
   const setUbicacion = (lat: number, lng: number) => {
     setGeolatitud(String(lat));
@@ -42,7 +48,7 @@ export default function ZonaForm({ onGuardar, onCancelar }: ZonaFormProps) {
       <div className="grid gap-4 md:grid-cols-4">
         <Input
           label="Descripción"
-          placeholder="Ej: Sierras Chicas"
+          placeholder="Ej: Centro comercial"
           value={descripcion}
           onChange={(e) => setDescripcion(e.target.value)}
         />
@@ -54,7 +60,7 @@ export default function ZonaForm({ onGuardar, onCancelar }: ZonaFormProps) {
         <Select
           label="Estado"
           value={estado}
-          onChange={(e) => setEstado(e.target.value as EstadoZona)}
+          onChange={(e) => setEstado(e.target.value as EstadoZonaComercial)}
           options={[
             { label: "Activa", value: "ACTIVA" },
             { label: "Inactiva", value: "INACTIVA" },
@@ -62,7 +68,7 @@ export default function ZonaForm({ onGuardar, onCancelar }: ZonaFormProps) {
         />
       </div>
 
-      <ZonaMap
+      <ZonaComercialMap
         geometria={geometria}
         setGeometria={setGeometria}
         setUbicacion={setUbicacion}
@@ -73,7 +79,7 @@ export default function ZonaForm({ onGuardar, onCancelar }: ZonaFormProps) {
           Cancelar
         </Button>
 
-        <Button onClick={guardar}>Guardar zona</Button>
+        <Button onClick={guardar}>Guardar zona comercial</Button>
       </div>
     </div>
   );
